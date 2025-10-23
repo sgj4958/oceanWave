@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	html, body {width: 100%; height: 100%;}
+
+	@property --pos {
+	  syntax: '<color>|<length>|<number>|<integer>|<percentage>|<length-percentage>|<angle>|<time>|<resolution>|<transform-function>|<custom-ident>';
+	  inherits: true;
+	  initial-value: -100%;
+	}
+	.waves {
+		--waveHeight: 100px;
+		--waveColor: skyblue;
+		position: relative;
+		height: 100%;
+		background: linear-gradient(180deg, transparent var(--waveHeight), var(--waveColor) var(--waveHeight), transparent);
+		
+		.wave {
+			position: absolute;
+			width: 100%;
+			height: var(--waveHeight);
+			background: var(--waveColor);
+			
+			&:nth-child(2n) {
+			clip-path: shape(
+				from var(--pos) 100%,
+				curve by 50% -50% with 25% 0 / 25% -50%,
+				curve by 50% 50% with 25% 0 / 25% 50%,
+				
+				hline to 100%,
+				vline to 100%,
+				hline to 0,
+				vline to 100%
+			);
+			}
+			
+			&:nth-child(2n - 1) {
+			clip-path: shape(
+				from var(--pos) 100%,
+				curve by 25% -25% with 12.5% 0 / 12.5% -25%,
+				curve by 25% 25% with 12.5% 0 / 12.5% 25%,
+				
+				curve by 25% -50% with 12.5% 0 / 12.5% -50%,
+				curve by 25% 50% with 12.5% 0 / 12.5% 50%,
+				
+				hline to 100%,
+				vline to 100%,
+				hline to 0,
+				vline to 100%
+			);
+			}
+			animation: wave calc(sibling-index() * 8s) calc(sibling-index() * -8s) infinite;
+			opacity: calc(1 - sibling-index() * 0.1);
+		}
+	}
+
+	@keyframes wave {
+		to {--pos: 100%;}
+	}
+  </style>
+</head>
+<body>
+
+	<div class="waves">
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+	</div>
+
+</body>
+<script>
+</script>
+</html>
