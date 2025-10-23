@@ -33,12 +33,7 @@
 			clip-path: shape(
 				from var(--pos) 100%,
 				curve by 50% -50% with 25% 0 / 25% -50%,
-				curve by 50% 50% with 25% 0 / 25% 50%,
-				
-				hline to 100%,
-				vline to 100%,
-				hline to 0,
-				vline to 100%
+				curve by 50% 50% with 25% 0 / 25% 50%
 			);
 			}
 			
@@ -49,12 +44,7 @@
 				curve by 25% 25% with 12.5% 0 / 12.5% 25%,
 				
 				curve by 25% -50% with 12.5% 0 / 12.5% -50%,
-				curve by 25% 50% with 12.5% 0 / 12.5% 50%,
-				
-				hline to 100%,
-				vline to 100%,
-				hline to 0,
-				vline to 100%
+				curve by 25% 50% with 12.5% 0 / 12.5% 50%
 			);
 			}
 			animation: wave calc(sibling-index() * 8s) calc(sibling-index() * -8s) infinite;
