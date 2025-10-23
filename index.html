@@ -16,6 +16,7 @@
 	  inherits: true;
 	  initial-value: -100%;
 	}
+
 	.waves {
 		--waveHeight: 100px;
 		--waveColor: skyblue;
@@ -49,6 +50,15 @@
 			}
 			animation: wave calc(sibling-index() * 8s) calc(sibling-index() * -8s) infinite;
 			opacity: calc(1 - sibling-index() * 0.1);
+		}
+		
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			background: url(spongebob_house.png) center / contain;
+			aspect-ratio: 1000 / 500;
+			margin-top: 200vh;
 		}
 	}
 
